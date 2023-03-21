@@ -1,31 +1,87 @@
 ---
-# Based on ansible-lint config
 extends: default
 
 rules:
   braces:
-    max-spaces-inside: 1
     level: error
+    forbid: false
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+    min-spaces-inside-empty: -1
+    max-spaces-inside-empty: -1
+
   brackets:
+    level: error
+    forbid: false
+    min-spaces-inside: 0
     max-spaces-inside: 1
-    level: error
+    min-spaces-inside-empty: -1
+    max-spaces-inside-empty: -1
+
   colons:
-    max-spaces-after: -1
     level: error
+    max-spaces-before: 0
+    max-spaces-after: 1
+
   commas:
-    max-spaces-after: -1
     level: error
-  comments: disable
+    max-spaces-before: 0
+    min-spaces-after: 1
+    max-spaces-after: 1
+
+  comments:
+    level: error
+    require-starting-space: true
+    ignore-shebangs: true
+    min-spaces-from-content: 2
+
   comments-indentation: enable
-  document-start: disable
+
+  document-start:
+    present: true
+
   empty-lines:
-    max: 3
     level: error
+    max: 3
+    max-start: 0
+    max-end: 0
+
+  empty-values:
+    level: error
+    forbid-in-block-mappings: true
+    forbid-in-flow-mappings: true
+
   hyphens:
     level: error
-  indentation: enable
+    max-spaces-after: 1
+
+  indentation:
+    spaces: consistent
+    indent-sequences: true
+    check-multi-line-strings: false
+
   key-duplicates: enable
+
+  key-ordering: enable
+
   line-length: disable
+
   new-line-at-end-of-file: disable
+
   new-lines:
     type: unix
+
+  quoted-strings:
+    quote-type: any
+    required: true
+    extra-required: [^http://, ^ftp://]
+    extra-allowed: []
+    allow-quoted-quotes: false
+
+  trailing-spaces: enabled
+
+  truthy:
+    allowed-values: ['true', 'false']
+    check-keys: false
+
+# vim: ft=yaml ts=2 sts=2 sw=2 sr et
