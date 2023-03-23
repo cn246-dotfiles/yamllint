@@ -62,7 +62,7 @@ rules:
 
   key-duplicates: enable
 
-  key-ordering: enable
+  key-ordering: disable
 
   line-length: disable
 
@@ -73,12 +73,11 @@ rules:
 
   quoted-strings:
     quote-type: any
-    required: true
-    extra-required: [^http://, ^ftp://]
     extra-allowed: []
     allow-quoted-quotes: false
+    required: false
 
-  trailing-spaces: enabled
+  trailing-spaces: enable
 
   truthy:
     allowed-values: ['true', 'false']
